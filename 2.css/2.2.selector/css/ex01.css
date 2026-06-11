@@ -1,0 +1,180 @@
+/* * {
+  border: solid;
+} */
+/* #title {
+  color: red;
+}
+.sub-title {
+  color: blueviolet;
+}
+h3 {
+  color: green;
+}
+p {
+  color: blue;
+} */
+
+/* .box h2 {
+  border: solid red;
+}
+.content h2 {
+  border: solid green;
+} */
+
+/* .box > h2 {
+  color: red;
+}
+.box > div > h2 {
+  color: green;
+} */
+
+/* .menu > li > ul > li > a {
+  color: red;
+} */
+/* .item {
+  color: red;
+} */
+/* .item.large {
+  color: red;
+} */
+
+/* .item#feature {
+  color: red;
+} */
+
+/* .box .title {
+  color: red;
+}
+
+.title.title2 {
+  color: green;
+} */
+
+/* h2 ~ p {
+  color: red;
+} */
+
+/* .form input:valid ~ span {
+  color: red;
+} */
+
+/* p + h2 {
+  color: red;
+} */
+
+/* h2 + h2 {
+  color: red;
+} */
+
+/* p + h2 + h2,
+p + h2 {
+  color: red;
+} */
+
+/* [class="col-1"] {
+  color: red;
+} */
+/* [target="_blank"] {
+  color: green;
+} */
+
+/* [title] {
+  color: green;
+} */
+
+/* [href$=".net"] {
+  color: red;
+} */
+
+/* [title~="F8"] {
+  color: red;
+} */
+
+/* input {
+  background: yellow;
+}
+input[type="email"] {
+  background: yellowgreen;
+} */
+
+/* h2::before {
+  content: "";
+}
+h2::after {
+  content: "B";
+} */
+
+/* h2::first-letter {
+  color: red;
+}
+p::first-line {
+  color: red;
+} */
+
+/* p::selection {
+  background: black;
+  color: yellow;
+} */
+
+/* input {
+  color: red;
+}
+input::placeholder {
+  color: green;
+} */
+
+/* h1:hover {
+  color: red;
+}
+h1:active {
+  color: green;
+}
+button:focus {
+  background: blueviolet;
+}
+input:focus {
+  background: yellow;
+}
+h2:focus {
+  color: red;
+} */
+
+/* input:focus {
+  background: yellow;
+}
+input:focus::placeholder {
+  color: red;
+} */
+
+/* table:hover ::placeholder {
+  color: red;
+} */
+
+/* table input:hover::placeholder {
+  color: red;
+} */
+
+/* input:checked + span {
+  color: red;
+} */
+
+/* button:disabled {
+  background: gray;
+  color: #fff;
+} */
+
+/* h2:not(.active):not(.active2) {
+  color: red;
+} */
+
+/* ul :first-of-type {
+  color: red;
+}
+
+ul :last-of-type {
+  color: green;
+} */
+
+ul :nth-of-type(2) {
+  color: red;
+}
