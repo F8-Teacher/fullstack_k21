@@ -1,0 +1,22 @@
+.box {
+  /* width: 400px;
+  height: 300px;
+  border-width: 20px;
+  border-style: solid;
+  border-left-color: red;
+  border-right-color: yellow;
+  border-bottom-color: green;
+  border-top-color: blueviolet; */
+  /* border-left: 5px solid red; */
+}
+
+.box2 {
+  width: 0;
+  height: 0;
+  border: 50px solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: blueviolet;
+  border-top-width: 0;
+}

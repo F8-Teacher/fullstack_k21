@@ -1,0 +1,27 @@
+/* input:valid + span {
+  color: red;
+} */
+
+/* #toggle:checked ~ .content {
+  display: none;
+} */
+
+/* #hide:checked ~ .content {
+  display: none;
+}
+#show:checked ~ .content {
+  display: block;
+} */
+
+#green:checked ~ .content,
+#green:checked ~ .nav [for="green"] {
+  color: green;
+}
+#blue:checked ~ .content,
+#blue:checked ~ .nav [for="blue"] {
+  color: blue;
+}
+#red:checked ~ .content,
+#red:checked ~ .nav [for="red"] {
+  color: red;
+}

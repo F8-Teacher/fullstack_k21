@@ -1,0 +1,15 @@
+body {
+  height: 2000px;
+  /* background-color: yellow;
+  background-image: url("https://cdn.pixabay.com/animation/2026/05/09/09/34/09-34-48-912_512.gif");
+  background-repeat: no-repeat;
+  background-position: left top; */
+  /* background-size: contain; */
+  /* background-attachment: fixed; */
+  background: yellow
+    url("https://cdn.pixabay.com/animation/2026/05/09/09/34/09-34-48-912_512.gif")
+    no-repeat 0 0 / cover fixed;
+}
+p {
+  background-color: yellowgreen;
+}

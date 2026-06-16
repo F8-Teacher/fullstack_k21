@@ -1,0 +1,47 @@
+/* @font-face {
+  font-family: Fontbox;
+  src: url("../fonts//SVN-Fontbox-Boathouse-Filled.otf");
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-size: 1.6rem;
+  font-family: "DM Sans", sans-serif;
+}
+.box {
+  font-size: 1.5em;
+}
+.text-1 {
+  font-size: 1.5em;
+  text-align: left;
+  text-align-last: center;
+}
+.text-2 {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-weight: 500;
+  font-style: italic;
+}
+h1 {
+  font-family: Fontbox;
+  font-size: 7rem;
+  text-decoration: overline underline;
+}
+h2 {
+  text-transform: capitalize;
+  letter-spacing: -2px;
+  word-spacing: 10px;
+  text-align: left;
+}
+.image {
+  text-align: center;
+} */
+
+.box {
+  width: 500px;
+  height: 300px;
+  background: yellow;
+  /* word-wrap: break-word; */
+  word-break: break-all;
+}
