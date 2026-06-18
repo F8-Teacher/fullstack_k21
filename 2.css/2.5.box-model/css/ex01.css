@@ -10,7 +10,7 @@
   /* border-left: 5px solid red; */
 }
 
-.box2 {
+/* .box2 {
   width: 0;
   height: 0;
   border: 50px solid;
@@ -19,4 +19,70 @@
   border-top-color: transparent;
   border-bottom-color: blueviolet;
   border-top-width: 0;
+} */
+
+/* .box {
+  width: 200px;
+  height: 200px;
+  border: 5px solid red;
+  border-radius: 10px 10px 0 0;
+} */
+
+/* .box {
+  width: 200px;
+  border: 5px solid red;
+}
+.content {
+  padding-top: 100%;
+} */
+
+/* .box {
+  width: 300px;
+  border: 5px solid red;
+  padding: 20px;
+}
+span {
+  border: 5px solid green;
+  padding: 15px 0;
+  display: inline-block;
+} */
+
+/* .hero {
+  height: 50vh;
+  background: green;
+}
+.cta {
+  text-align: center;
+}
+.cta a {
+  text-decoration: none;
+  background: red;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 15px;
+} */
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+}
+.box {
+  width: 200px;
+  border: 5px solid red;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 1;
+}
+input {
+  border: 1px solid #ddd;
+  padding: 7px 10px;
+  margin: 20px;
+  border-radius: 10px;
+}
+input:focus {
+  border: 1px solid rgb(7, 229, 236);
 }

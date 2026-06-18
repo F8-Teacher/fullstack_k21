@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-family: Inter, sans-serif;
+  line-height: 1.5;
+  font-size: 1.6rem;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+ul {
+  list-style: none;
+}
+.hero {
+  height: 100vh;
+  background: url("../images/hero-bg.png") no-repeat 0 0 / cover;
+  color: #fff;
+}
+.container {
+  width: 1120px;
+  margin: 0 auto;
+}
+header {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  padding: 20px 0;
+}
+header ul {
+  display: flex;
+  gap: 20px;
+}
+header ul li a {
+  color: #f5f5f5;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+}
+header ul li a:hover {
+  color: #e9bd8c;
+}
+.hero .container {
+  height: 100%;
+}
+.hero .inner {
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 70px;
+}
+.hero .inner h1 {
+  color: #e9bd8c;
+  font-size: 2.4rem;
+}
+.hero .inner h2 {
+  font-size: 7.4rem;
+  font-family: "Sansita Swashed";
+  line-height: 1.3;
+  margin-top: 30px;
+}
+.hero .inner .cta {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.hero .inner .cta .btn {
+  display: block;
+  background: #933c24;
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 7px;
+}
+.hero .inner .cta .link {
+  color: #e9bd8c;
+  font-weight: 500;
+}
