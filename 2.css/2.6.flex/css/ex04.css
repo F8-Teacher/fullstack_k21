@@ -1,0 +1,77 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-size: 1.6rem;
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  color: #333;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.container {
+  width: 1220px;
+  margin: 0 auto;
+}
+.posts {
+  padding: 20px 0;
+}
+.posts .row {
+  display: flex;
+  gap: 15px;
+}
+.posts .col-left {
+  width: 28%;
+}
+.posts .col-center {
+  flex: 1;
+}
+
+.posts .col-right {
+  width: 23%;
+}
+.posts .col-left .post-item {
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.posts .col-left .post-item a {
+  display: flex;
+  gap: 10px;
+}
+.posts .col-left .post-item img {
+  width: 40%;
+}
+.posts .col-left .post-item h3 {
+  flex: 1;
+  font-size: 1.6rem;
+}
+.posts h1 {
+  margin: 15px 0;
+  font-size: 2.8rem;
+}
+.posts ul {
+  list-style: none;
+  font-weight: 700;
+}
+.posts .col-right .post-item img {
+  margin-bottom: 10px;
+}
+.posts .col-right .post-item {
+  margin-bottom: 25px;
+}
+.posts .col-right .post-item h3 {
+  font-size: 1.6rem;
+}

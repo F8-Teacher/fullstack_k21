@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: blueviolet;
+}
+.products {
+  --gap-size: 10px;
+  --column: 2;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-size);
+}
+.item {
+  width: calc(
+    100% / var(--column) - var(--gap-size) + var(--gap-size) / var(--column)
+  );
+  padding: 20px;
+  background: green;
+  color: #fff;
+}
+.posts {
+  width: 80%;
+  margin: 0 auto;
+  background: var(--primary-color);
+}
