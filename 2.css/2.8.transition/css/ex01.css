@@ -1,0 +1,70 @@
+/* .box {
+  color: red;
+  border: 1px solid red;
+}
+.box h1 {
+  transition-property: padding-left, font-size;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  transition: 0.3s ease;
+  transition-property: padding-left, font-size;
+}
+.box:hover h1 {
+  padding-left: 150px;
+  font-size: 4rem;
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.title {
+  margin: 50px;
+  position: relative;
+  display: inline-block;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 4px;
+  width: 0;
+  background: red;
+  transition: width 0.3s ease;
+}
+.title:hover::before {
+  width: 100%;
+}
+.title > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 0;
+  transition: width 0.3s ease;
+}
+.title > span > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: red;
+}
+.title:hover > span {
+  width: 100%;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+  overflow: hidden;
+}
+.box p {
+  width: 400px;
+}
