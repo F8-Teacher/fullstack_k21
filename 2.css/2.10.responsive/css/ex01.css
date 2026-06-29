@@ -1,0 +1,46 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h1 {
+  background: yellow;
+}
+
+@media screen and (min-width: 576px) {
+  h1 {
+    color: blueviolet;
+    background: inherit;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    color: green;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  h1 {
+    color: red;
+  }
+}
+
+/* @media screen and (max-width: 1199.98px) {
+  h1 {
+    color: green;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  h1 {
+    color: blueviolet;
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  h1 {
+    background: yellow;
+    color: inherit;
+  }
+} */
