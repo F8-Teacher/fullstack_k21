@@ -1,0 +1,25 @@
+ol {
+  list-style: none;
+  /* counter-reset: item-counter; */
+}
+/* ul {
+  counter-reset: item-counter;
+} */
+li {
+  display: flex;
+  gap: 5px;
+  margin: 10px 0;
+  /* counter-increment: item-counter; */
+}
+li::before {
+  /* content: "#" counter(item-counter); */
+  content: "#" attr(data-count);
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: green;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+}
