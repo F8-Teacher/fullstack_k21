@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./output/ex03.css" />
+  </head>
+  <body>
+    <header class="py-3 bg-white shadow dark:bg-[#333] dark:text-white">
+      <div class="container flex items-center">
+        <a href="#">
+          <img
+            src="https://fpt.vn/frontend_layout_2025_vibecode/assets/images/logo-ftel.svg"
+            alt=""
+            class="h-12.5 w-30"
+          />
+        </a>
+        <nav class="ml-auto flex gap-5">
+          <input type="checkbox" id="menu-toggle" class="peer/menu" hidden />
+          <ul
+            class="-translate-x-full peer-checked/menu:translate-0 transition-transform duration-400 lg:transition-none lg:translate-0 fixed top-0 left-0 bottom-0 w-62.5 z-999 bg-[#333] p-5 lg:p-0 lg:w-auto lg:bg-transparent lg:static lg:flex items-center gap-5 [&_a]:text-white lg:[&_a]:text-[#333] [&>li]:py-3 lg:[&>li]:py-0 [&>li:first-child]:border-b [&>li:first-child]:border-white lg:[&>li:first-child]:border-none dark:[&_a]:text-white"
+          >
+            <li>
+              <a href="#">Menu 1</a>
+            </li>
+            <li>
+              <a href="#">Menu 2</a>
+            </li>
+            <li>
+              <a href="#">Menu 3</a>
+            </li>
+            <li>
+              <a href="#">Menu 4</a>
+            </li>
+            <li>
+              <a href="#">Menu 5</a>
+            </li>
+          </ul>
+          <label
+            for="menu-toggle"
+            class="fixed left-0 right-0 top-0 bottom-0 z-990 opacity-0 invisible peer-checked/menu:opacity-100 peer-checked/menu:visible bg-black/60 transition-opacity duration-400"
+          ></label>
+          <div class="relative cursor-pointer hover:text-yellow-600 group/cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span
+              class="absolute -top-1.25 -right-2 w-4 h-4 bg-red-600 text-white rounded-full text-[10px] flex items-center justify-center group-hover/cart:bg-yellow-700"
+              >10</span
+            >
+          </div>
+          <label for="menu-toggle" class="text-xl lg:hidden">
+            <i class="fa-solid fa-bars"></i>
+          </label>
+          <div class="js-theme-toggle cursor-pointer">
+            <span class="dark:hidden">
+              <i class="fa-solid fa-moon"></i>
+            </span>
+            <span class="hidden dark:inline-block">
+              <i class="fa-solid fa-sun"></i>
+            </span>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <section class="py-5 dark:bg-[#333] dark:text-white">
+      <div class="px-5 lg:px-0 lg:max-w-1/2 mx-auto mb-4">
+        <h2
+          class="text-center text-heading-2 mb-3 border-b border-[#ddd] pb-3 text-primary"
+        >
+          Sản phẩm nổi bật
+        </h2>
+        <p class="hover:custom-size-[20px]">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+          distinctio numquam quia officiis. Optio accusantium numquam autem
+          voluptatem sequi nulla recusandae inventore illo sunt. Quaerat tempore
+          animi voluptas natus consequuntur.
+        </p>
+      </div>
+      <div
+        class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+      >
+        <div class="bg-white border border-[#ddd] p-3 rounded-xl">
+          <img
+            src="https://cdn2.cellphones.com.vn/insecure/rs:fill:300:300/q:100/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-17-pro-max_3.jpg"
+            alt=""
+          />
+          <h3 class="font-medium text-xl dark:text-[#333]">Tên sản phẩm</h3>
+        </div>
+        <div class="bg-white border border-[#ddd] p-3 rounded-xl">
+          <img
+            src="https://cdn2.cellphones.com.vn/insecure/rs:fill:300:300/q:100/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-17-pro-max_3.jpg"
+            alt=""
+          />
+          <h3 class="font-medium text-xl dark:text-[#333]">Tên sản phẩm</h3>
+        </div>
+        <div class="bg-white border border-[#ddd] p-3 rounded-xl">
+          <img
+            src="https://cdn2.cellphones.com.vn/insecure/rs:fill:300:300/q:100/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-17-pro-max_3.jpg"
+            alt=""
+          />
+          <h3 class="font-medium text-xl dark:text-[#333]">Tên sản phẩm</h3>
+        </div>
+        <div class="bg-white border border-[#ddd] p-3 rounded-xl">
+          <img
+            src="https://cdn2.cellphones.com.vn/insecure/rs:fill:300:300/q:100/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-17-pro-max_3.jpg"
+            alt=""
+          />
+          <h3 class="font-medium text-xl dark:text-[#333]">Tên sản phẩm</h3>
+        </div>
+        <div class="bg-white border border-[#ddd] p-3 rounded-xl">
+          <img
+            src="https://cdn2.cellphones.com.vn/insecure/rs:fill:300:300/q:100/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-17-pro-max_3.jpg"
+            alt=""
+          />
+          <h3 class="font-medium text-xl dark:text-[#333]">Tên sản phẩm</h3>
+        </div>
+        <div class="bg-white border border-[#ddd] p-3 rounded-xl">
+          <img
+            src="https://cdn2.cellphones.com.vn/insecure/rs:fill:300:300/q:100/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-17-pro-max_3.jpg"
+            alt=""
+          />
+          <h3 class="font-medium text-xl dark:text-[#333]">Tên sản phẩm</h3>
+        </div>
+        <div class="bg-white border border-[#ddd] p-3 rounded-xl">
+          <img
+            src="https://cdn2.cellphones.com.vn/insecure/rs:fill:300:300/q:100/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-17-pro-max_3.jpg"
+            alt=""
+          />
+          <h3 class="font-medium text-xl dark:text-[#333]">Tên sản phẩm</h3>
+        </div>
+        <div class="bg-white border border-[#ddd] p-3 rounded-xl">
+          <img
+            src="https://cdn2.cellphones.com.vn/insecure/rs:fill:300:300/q:100/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-17-pro-max_3.jpg"
+            alt=""
+          />
+          <h3 class="font-medium text-xl dark:text-[#333]">Tên sản phẩm</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-3">
+      <div class="container">
+        <a href="#" class="btn-primary hover:btn-hover">Click me</a>
+      </div>
+    </section>
+
+    <script>
+      const themeToggleBtn = document.querySelector(".js-theme-toggle");
+      themeToggleBtn.addEventListener("click", () => {
+        document.querySelector("html").classList.toggle("dark");
+      });
+    </script>
+  </body>
+</html>

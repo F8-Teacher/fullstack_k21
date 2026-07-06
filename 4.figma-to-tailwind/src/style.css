@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+@import "tailwindcss";
+@theme {
+  --font-sans: "Oswald", sans-serif;
+  --text-base: 18px;
+  --color-default: #000;
+  --color-bg-primary: #ec4a23;
+}
+body {
+  @apply text-base text-default;
+}
+
+.container {
+  @apply max-w-300 mx-auto;
+}
