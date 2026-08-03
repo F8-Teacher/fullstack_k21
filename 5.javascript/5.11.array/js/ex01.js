@@ -31,7 +31,7 @@ myArr[2] = 'Ahihi';
 // }
 
 //Xóa phần tử
-let indexDel = 2;
+// let indexDel = 2;
 // const newArr = [];
 // for (let index in myArr) {
 //     if (+index === indexDel) {
@@ -42,5 +42,5 @@ let indexDel = 2;
 // console.log(myArr);
 // console.log(newArr);
 
-delete myArr[indexDel];
-console.log(myArr);
+// delete myArr[indexDel];
+// console.log(myArr);
