@@ -61,7 +61,7 @@
 //Làm thế nào từ 1 method non-static có thể truy cập đến method static => Lấy được Constructor từ this (instance)
 
 //Bài tập
-function Calc() {
+function Calc(initValue) {
 
 }
 
