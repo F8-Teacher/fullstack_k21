@@ -219,38 +219,124 @@
 //     });
 
 //Bài tập
-const getUser = (userId) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            const users = [
-                {
-                    id: 1,
-                    name: "User 1",
-                    salary: 1000
-                },
-                {
-                    id: 2,
-                    name: "User 2",
-                    salary: 1000
-                },
-                {
-                    id: 3,
-                    name: "User 3",
-                    salary: 3000
-                }
-            ];
-            resolve(users.find(user => user.id === userId));
-        }, Math.random() * 2000);
-    })
-}
-let total = 0;
-const ids = [1, 2, 3];
-for (let i = 0; i < ids.length; i++) {
-    const id = ids[i];
-    getUser(id).then(data => {
-        total += data.salary;
-    })
-};
-console.log(total);
+// const getUser = (userId) => {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             const users = [
+//                 {
+//                     id: 1,
+//                     name: "User 1",
+//                     salary: 1000
+//                 },
+//                 {
+//                     id: 2,
+//                     name: "User 2",
+//                     salary: 1000
+//                 },
+//                 {
+//                     id: 3,
+//                     name: "User 3",
+//                     salary: 3000
+//                 }
+//             ];
+//             resolve(users.find(user => user.id === userId));
+//         }, Math.random() * 2000);
+//     })
+// }
+
+// const ids = [1, 2, 3];
+// const salaryPromise = new Promise((resolve) => {
+//     let total = 0;
+//     let count = 0;
+//     for (let i = 0; i < ids.length; i++) {
+//         const id = ids[i];
+//         getUser(id).then(data => {
+//             total += data.salary;
+//             //Lấy total cuối cùng -> đưa vào resolve
+//             if (count === ids.length - 1) {
+//                 resolve(total);
+//             }
+//             count++;
+//         })
+//     };
+// })
+
+// salaryPromise.then(data => {
+//     console.log(data);
+// })
 
 //Tính tổng và log ra được giá trị ngoài vòng lặp (Không được dùng: Promise.all, async/await)
+//Gợi ý: total là 1 dữ liệu trong tương lai -> Tạo promise mới -> Đưa giá trị total của lần tính cuối cùng vào promise đó
+
+//Promise.all(): Giải quyết đồng thời các Promise và trả về kết quả 1 lần
+// const promise1 = Promise.resolve("Data 1");
+// const promise2 = Promise.reject("Error 2");
+// const promise3 = Promise.resolve("Data 3");
+// const promiseArr = [promise1, promise2, promise3];
+// Promise.all(promiseArr).then(data => {
+//     console.log(data);
+// });
+
+// Promise.allSettled(promiseArr).then(data => {
+//     console.log(data);
+// })
+
+// const salaryPromise = Promise.all(ids.map(id => getUser(id))).then(users => {
+//     const total = users.reduce((acc, cur) => acc + cur.salary, 0);
+//     return total;
+// })
+
+// //Cần sử dụng
+// salaryPromise.then(data => {
+//     console.log(data);
+// })
+
+const getPosts = () => {
+    return new Promise((resolve, reject) => {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "https://dummyjson.com/posts", true);
+        xhttp.onload = () => {
+            const data = JSON.parse(xhttp.responseText);
+            resolve(data);
+        };
+        xhttp.onerror = () => {
+            reject("Có lỗi khi lấy dữ liệu bài viết từ API");
+        };
+        xhttp.send();
+    });
+};
+const getProducts = () => {
+    return new Promise((resolve, reject) => {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "https://dummyjson.com/products", true);
+        xhttp.onload = () => {
+            const data = JSON.parse(xhttp.responseText);
+            resolve(data);
+        };
+        xhttp.onerror = () => {
+            reject("Có lỗi khi lấy dữ liệu sản phẩm từ API");
+        };
+        xhttp.send();
+    });
+};
+const getTodos = () => {
+    return new Promise((resolve, reject) => {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "https://dummyjson.com/todos", true);
+        xhttp.onload = () => {
+            const data = JSON.parse(xhttp.responseText);
+            resolve(data);
+        };
+        xhttp.onerror = () => {
+            reject("Có lỗi khi lấy dữ liệu công việc từ API");
+        };
+        xhttp.send();
+    });
+};
+Promise.all([getPosts(), getProducts(), getTodos()]).then(([posts, products, todos]) => {
+    console.log(posts);
+    console.log(products);
+    console.log(todos);
+});
+
+//Async/Await
