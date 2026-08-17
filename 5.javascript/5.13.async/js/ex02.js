@@ -95,6 +95,74 @@ const getUser = (userId) => {
     })
 }
 
-const ids = [1, 2, 3];
+// const ids = [1, 2, 3];
 
 //Tính tổng salary (Dùng async await)
+// const getTotal = async () => {
+//     let total = 0;
+//     const start = Date.now();
+//     for (const id of ids) {
+//         const user = await getUser(id);
+//         total += user.salary;
+//     }
+//     console.log(total);
+//     const end = Date.now();
+//     console.log(`${(end - start) / 1000}`);
+
+// }
+// getTotal();
+
+// const getTotal = async () => {
+//     const start = Date.now();
+//     const total = (await Promise.all(ids.map(id => getUser(id)))).reduce((acc, cur) => acc + cur.salary, 0);
+//     console.log(total);
+//     const end = Date.now();
+//     console.log(`${(end - start) / 1000}`);
+// }
+// getTotal();
+
+//return promise, return await promise
+// const myPromise = () => new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         const status = false;
+//         if (status) {
+//             resolve('My Data');
+//         } else {
+//             reject(new Error('My Error'))
+//         }
+
+//     }, 2000);
+// })
+// const display = async () => {
+//     // try {
+//     //     return await myPromise();
+//     // } catch (error) {
+//     //     // return {
+//     //     //     error: "Customer error"
+//     //     // }
+//     //     throw new Error("Custom Error");
+//     // }
+//     return await myPromise();
+// }
+// display().then(data => {
+//     console.log(data);
+// }).catch(error => {
+//     console.log(error);
+// })
+
+//display -> async promise -> myPromise -> data
+
+// const display2 = async () => {
+//     throw new Error("My Error");
+// }
+// display2().then(data => {
+//     console.log(data);
+// }).catch((err) => {
+//     console.log(err);
+// })
+
+//IIFE
+// (async (id) => {
+//     const data = await getUser(id);
+//     console.log(data);
+// })(2)

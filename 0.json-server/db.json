@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "User 1",
+      "email": "user1@gmail.com",
+      "status": true
+    },
+    {
+      "id": 2,
+      "name": "User 2",
+      "email": "user2@gmail.com",
+      "status": false
+    },
+    {
+      "id": 3,
+      "name": "User 3",
+      "email": "user3@gmail.com",
+      "status": true
+    },
+    {
+      "name": "Hello 1",
+      "email": "an@gmail.com@gmail.com",
+      "id": 4,
+      "status": true
+    },
+    {
+      "name": "An",
+      "email": "an111@gmail.com@gmail.com",
+      "id": 5,
+      "status": false
+    },
+    {
+      "name": "Tuan Anh",
+      "email": "tuananh@gmail.com@gmail.com",
+      "id": 6,
+      "status": true
+    },
+    {
+      "name": "Duy",
+      "email": "duy@gmail.com@gmail.com",
+      "id": 7,
+      "status": false
+    },
+    {
+      "name": "Abc",
+      "email": "abc@gmail.com",
+      "id": 8
+    }
+  ],
+  "phones": [
+    {
+      "phone": "01111",
+      "userId": 8,
+      "id": 1
+    }
+  ]
+}
