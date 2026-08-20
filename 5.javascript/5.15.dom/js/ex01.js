@@ -154,3 +154,66 @@
 // btn.addEventListener('click', () => {
 //     console.log(textarea.innerHTML);
 // })
+
+// const box = document.querySelector('.box');
+// const btn = document.querySelector('button');
+// const initContent = box.innerHTML;
+// btn.addEventListener('click', () => {
+//     if (!box.innerHTML) {
+//         box.innerHTML = initContent;
+//         btn.innerText = `Ẩn`
+//     } else {
+//         box.innerHTML = '';
+//         btn.innerText = `Hiện`
+//     }
+// })
+
+// const input = document.querySelector('input');
+// const btn = document.querySelector('button');
+// const preview = document.querySelector('.preview');
+// const error = document.querySelector('.error');
+// const isUrl = (val) => {
+//     const pattern = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+//     return pattern.test(val);
+// }
+// btn.addEventListener('click', () => {
+//     error.innerText = '';
+//     preview.innerHTML = '';
+//     const url = input.value;
+//     if (!url) {
+//         error.innerText = 'Hãy nhập link ảnh'
+//         return;
+//     }
+//     if (!isUrl(url)) {
+//         error.innerText = 'Link ảnh không đúng định dạng'
+//         return;
+//     }
+//     preview.innerHTML = `<img src="${url}" width="300"/>`
+// })
+
+//Thuộc tính custom (data-attribute)
+// const box = document.querySelector('.box');
+// const id = box.getAttribute('data-id');
+// console.log(id);
+// box.setAttribute('data-name', 'an')
+// box.removeAttribute('data-id');
+// console.log(box.dataset.id); //data-id
+// box.dataset.name = 'an'; //data-name
+// box.dataset.animationName = "ease"; //data-animation-name
+// delete box.dataset.name;
+
+//ClassList
+// const box = document.querySelector('.box');
+// console.log(box.classList);
+
+//add()
+// box.classList.add('active', 'open');
+
+//remove()
+// box.classList.remove('active');
+
+//replace
+// box.classList.replace('open', 'current');
+
+//contains
+// console.log(box.classList.contains('block-1'));

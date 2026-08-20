@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="js/ex02.js"></script>
+  </head>
+  <body class="h-[2000px]">
+    <div class="box">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa doloribus
+        reiciendis nulla voluptate dolores inventore fugiat aperiam accusantium
+        dicta exercitationem, nihil harum ducimus. Voluptate reprehenderit
+        dolores aspernatur fugit, beatae at.
+      </p>
+    </div>
+    <button
+      class="bg-green-600 m-5 px-5 py-2 rounded-xl text-white"
+      data-open-modal="modal-1"
+    >
+      Open Modal 1
+    </button>
+
+    <div class="hidden" data-modal="modal-1">
+      <div
+        class="top-0 right-0 left-0 z-999 fixed bg-white mx-auto my-5 p-5 border border-[#ddd] rounded-2xl max-w-3/4 max-h-[calc(100vh-40px)] overflow-auto"
+      >
+        <div
+          class="flex justify-between items-center gap-5 mb-3 pb-3 border-[#ddd] border-b"
+        >
+          <h2 class="text-2xl">Modal title 1</h2>
+          <span
+            class="font-medium hover:text-red-600 text-3xl cursor-pointer"
+            data-close="modal-1"
+            >&times;</span
+          >
+        </div>
+        <div class="">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint
+            facere blanditiis ducimus impedit consequatur quibusdam dolores
+            ratione quisquam deleniti doloremque iusto doloribus esse, voluptate
+            quis iure dolore? Facilis, voluptate distinctio.
+          </p>
+          <button
+            class="bg-green-600 m-5 px-5 py-2 rounded-xl text-white"
+            data-open-modal="modal-2"
+          >
+            Open Modal 2
+          </button>
+        </div>
+        <div class="flex justify-end gap-3 mt-3 pt-3 border-[#ddd] border-t">
+          <button class="bg-green-600 px-5 py-2 rounded-xl text-white">
+            Save change
+          </button>
+          <button
+            class="bg-gray-600 px-5 py-2 rounded-xl text-white"
+            data-close="modal-1"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+      <div
+        class="z-990 fixed inset-0 bg-black/70 js-overlay"
+        data-close="modal-1"
+      ></div>
+    </div>
+
+    <div class="hidden" data-modal="modal-2">
+      <div
+        class="top-0 right-0 left-0 z-999 fixed bg-white mx-auto my-5 p-5 border border-[#ddd] rounded-2xl max-w-1/2 max-h-[calc(100vh-40px)] overflow-auto"
+      >
+        <div
+          class="flex justify-between items-center gap-5 mb-3 pb-3 border-[#ddd] border-b"
+        >
+          <h2 class="text-2xl">Modal title 2</h2>
+          <span
+            class="font-medium hover:text-red-600 text-3xl cursor-pointer"
+            data-close="modal-2"
+            >&times;</span
+          >
+        </div>
+        <div class="">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint
+            facere blanditiis ducimus impedit consequatur quibusdam dolores
+            ratione quisquam deleniti doloremque iusto doloribus esse, voluptate
+            quis iure dolore? Facilis, voluptate distinctio.
+          </p>
+        </div>
+        <div class="flex justify-end gap-3 mt-3 pt-3 border-[#ddd] border-t">
+          <button class="bg-green-600 px-5 py-2 rounded-xl text-white">
+            Save change
+          </button>
+          <button
+            class="bg-gray-600 px-5 py-2 rounded-xl text-white"
+            data-close="modal-2"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+      <div
+        class="z-990 fixed inset-0 bg-black/70 js-overlay"
+        data-close="modal-2"
+      ></div>
+    </div>
+  </body>
+</html>
