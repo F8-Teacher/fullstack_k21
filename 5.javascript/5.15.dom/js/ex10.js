@@ -1,12 +1,14 @@
 const ul = document.querySelector('ul');
 const deleteBtn = document.querySelector('.delete-btn');
+let selectedList = [];
 const highlight = (element) => {
     element.classList.add('highlight');
     setTimeout(() => {
         element.classList.remove('highlight');
     }, 300);
 }
-ul.addEventListener('click', ({ target }) => {
+ul.addEventListener('click', (e) => {
+    const { target } = e;
     const li = target.parentElement;
     //Down
     if (target.classList.contains('down')) {
@@ -31,9 +33,19 @@ ul.addEventListener('click', ({ target }) => {
     if (target.nodeName === 'LI') {
         const itemSelected = ul.querySelector('.selected');
         target.classList.toggle('selected');
-        if (itemSelected) {
-            itemSelected.classList.remove('selected');
+        if (!e.metaKey && !e.ctrlKey) {
+            if (itemSelected) {
+                itemSelected.classList.remove('selected');
+            }
+        } else {
+            //Push item to array
+            if (!selectedList.find((val) => val === target)) {
+                selectedList.push(target);
+            } else {
+                selectedList = selectedList.filter((val) => val !== target)
+            }
         }
+
         //Enable delete button
         deleteBtn.disabled = !target.classList.contains('selected');
     }
@@ -83,8 +95,20 @@ ul.addEventListener('contextmenu', (e) => {
 
 document.addEventListener('click', (e) => {
     const itemSelected = ul.querySelector('.selected');
-    if (itemSelected && !ul.contains(e.target)) {
-        itemSelected.classList.remove('selected');
+
+    //Remove single selected
+    if (!selectedList.length) {
+        if (itemSelected && !ul.contains(e.target)) {
+            itemSelected.classList.remove('selected');
+            deleteBtn.disabled = true;
+        }
+    } else if (!ul.contains(e.target)) {
+        //Remove multiple selected
+        selectedList.forEach((val) => {
+            val.classList.remove('selected');
+        });
+        selectedList = [];
+        deleteBtn.disabled = true;
     }
 
     if (currentContext && !currentContext.contains(e.target)) {
@@ -94,7 +118,15 @@ document.addEventListener('click', (e) => {
 });
 
 deleteBtn.addEventListener('click', () => {
-    const itemSelected = ul.querySelector('.selected');
-    itemSelected.remove();
+    if (!selectedList.length) {
+        const itemSelected = ul.querySelector('.selected');
+        itemSelected.remove();
+    } else {
+        selectedList.forEach((val) => {
+            val.remove();
+        });
+        selectedList = [];
+    }
+
     deleteBtn.disabled = true;
 })
