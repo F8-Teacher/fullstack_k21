@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
       .up {
         color: green;
       }
@@ -15,14 +20,52 @@
       .down {
         cursor: pointer;
       }
+      ul {
+        width: 80%;
+        margin: 10px auto;
+      }
       li {
         padding: 5px;
         border-bottom: 1px solid #efefef;
         margin-bottom: 5px;
+        cursor: default;
+      }
+      .highlight {
+        background: rgb(240, 239, 160);
+        transition: all 0.3s;
+        opacity: 0.5;
+      }
+      .selected {
+        background: rgb(240, 239, 160);
+      }
+      .context-menu {
+        background: #f3e7a2;
+        width: 150px;
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        border: 1px solid #efefef;
+        position: absolute;
+      }
+      .context-menu > * {
+        cursor: pointer;
+      }
+      .context-menu > *:hover {
+        color: red;
+      }
+      nav {
+        width: 80%;
+        margin: 0 auto;
+        padding: 10px 0;
       }
     </style>
   </head>
   <body>
+    <nav>
+      <button class="delete-btn" disabled>Delete Document</button>
+    </nav>
     <ul>
       <li>Item 1 <span class="up">Up</span> <span class="down">Down</span></li>
       <li>Item 2 <span class="up">Up</span> <span class="down">Down</span></li>
