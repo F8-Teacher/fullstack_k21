@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 2000px;
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      header.fixed nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        max-width: 80%;
+        margin: 0 auto;
+      }
+      .container {
+        max-width: 80%;
+        margin: 0 auto;
+      }
+      .inner {
+        padding: 10px;
+        background: yellow;
+      }
+      nav {
+        padding: 10px;
+        background: blueviolet;
+      }
+      .top-btn {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        display: none;
+      }
+      .top-btn.show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="inner">Inner</div>
+        <nav>Nav</nav>
+      </div>
+    </header>
+    <main>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed neque unde
+        doloremque magni, temporibus totam commodi omnis accusantium ex, sequi
+        est nisi rerum nihil suscipit odio, doloribus cumque dignissimos
+        deleniti.
+      </p>
+    </main>
+    <button class="top-btn">Top</button>
+    <script src="js/ex11.js"></script>
+  </body>
+</html>
