@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="mx-auto py-5 max-w-[400px]">
+      <h1 class="mb-3 text-3xl">Đăng ký</h1>
+      <form action="">
+        <div class="mb-3">
+          <label for="" class="block mb-1">Name</label>
+          <input
+            type="text"
+            class="px-3 py-1 border border-[#ddd] rounded-md outline-none w-full js-name"
+            placeholder="Name..."
+          />
+        </div>
+        <div class="mb-3">
+          <label for="" class="block mb-1">Email</label>
+          <input
+            type="email"
+            class="px-3 py-1 border border-[#ddd] rounded-md outline-none w-full js-email"
+            placeholder="Email..."
+          />
+        </div>
+        <div class="mb-3">
+          <label for="" class="block mb-1">Password</label>
+          <input
+            type="password"
+            class="px-3 py-1 border border-[#ddd] rounded-md outline-none w-full js-password"
+            placeholder="Password..."
+          />
+        </div>
+        <button
+          class="bg-green-600 disabled:bg-green-600/50 px-3 py-1 rounded-md w-full text-white cursor-pointer"
+        >
+          Register
+        </button>
+        <div class="py-3 text-red-600 text-sm js-msg"></div>
+      </form>
+    </div>
+    <script type="module" src="js/register.js"></script>
+  </body>
+</html>
