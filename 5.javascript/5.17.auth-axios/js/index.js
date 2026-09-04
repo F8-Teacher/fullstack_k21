@@ -50,6 +50,11 @@ const init = () => {
     }
 
     getProfile();
+    getProfile();
+    getProfile();
+    getProfile();
+    getProfile();
+    getProfile();
     addEvent();
 
 }

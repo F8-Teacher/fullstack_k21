@@ -1,6 +1,31 @@
 import { CONFIG } from "../config.js";
-import { getAccessToken, getNewToken, saveToken } from "./auth.js";
+import { getAccessToken, getNewToken, getRefreshToken, saveToken } from "./auth.js";
 let refreshTokenPromise = null;
+
+const refreshAccessToken = (failedAccessToken) => {
+    const currentAccessToken = getAccessToken();
+    if (currentAccessToken && currentAccessToken !== failedAccessToken) {
+        return Promise.resolve({
+            access_token: currentAccessToken,
+            refresh_token: getRefreshToken()
+        });
+    }
+
+    if (!refreshTokenPromise) {
+        refreshTokenPromise = getNewToken()
+            .then((newToken) => {
+                if (newToken) {
+                    saveToken(newToken);
+                }
+                return newToken;
+            })
+            .finally(() => {
+                refreshTokenPromise = null;
+            });
+    }
+    return refreshTokenPromise;
+};
+
 export const api = axios.create({
     baseURL: CONFIG.BASE_API,
     timeout: 10000,
@@ -13,6 +38,7 @@ api.interceptors.request.use(
         if (accessToken) {
             config.headers.Authorization = `Bearer ${accessToken}`
         }
+        config._accessToken = accessToken;
         return config;
     },
     (error) => {
@@ -27,18 +53,15 @@ api.interceptors.response.use(
         return response;
     },
     async (error) => {
-        if (error.status === 401) {
+        const originalRequest = error.config;
+        const isUnauthorized = error.response?.status === 401;
 
-            if (!refreshTokenPromise) {
-                refreshTokenPromise = getNewToken().then(token => {
-                    saveToken(token);
-                    refreshTokenPromise = null;
-                    return token;
-                })
-            }
-            const newToken = await refreshTokenPromise;
+        if (isUnauthorized && originalRequest) {
+
+            const newToken = await refreshAccessToken(originalRequest._accessToken);
+
             if (newToken) {
-                return api(error.config); //Retry request
+                return api(originalRequest);
             }
         }
         return Promise.reject(error);
