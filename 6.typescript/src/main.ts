@@ -259,12 +259,157 @@
 // getUser(+id!); //Khẳng định với TypeScript là dữ liệu ổn
 
 //Bài tập
-try {
-    const error = new Error('Page not found');
-    error.status = 404;
-    throw error;
-} catch (error) {
-    console.log(error.message);
-    console.log(error.status);
+// interface AppError extends Error {
+//     status?: number;
+// }
+// try {
+//     const error: AppError = new Error('Page not found');
+//     error.status = 404;
+//     throw error;
+// } catch (error) {
+//     //Kiểm tra error có phải là instance của AppError
+//     if (error instanceof Error) {
+//         const err: AppError = error;
+//         console.log(err.message);
+//         console.log(err.status);
+//     }
 
+// }
+
+// class AppError extends Error {
+//     status?: number
+//     constructor(message: string, status: number) {
+//         super(message);
+//         this.status = status;
+//     }
+// }
+
+// try {
+//     throw new AppError("Page not found", 404);
+// } catch (error) {
+//     //Kiểm tra error có phải là instance của AppError
+//     if (error instanceof AppError) {
+//         console.log(error.message);
+//         console.log(error.status);
+//     }
+// }
+
+//Union Type
+// const user = {
+//     name: 'An',
+//     email: 'an@gmail.com',
+//     age: 30
+// }
+// const key: "name" | "email" | "age" = 'name';
+// console.log(user[key]);
+
+// const getValue = (key: "name" | "email" | "age") => {
+//     // return user[key];
+// }
+
+// console.log(getValue("email"));
+
+//keyof: Trích xuất các key của type -> Chuyển về Union
+
+// interface User {
+//     name: string;
+//     email: string;
+//     age: number;
+// }
+
+// const user = {
+//     name: 'An',
+//     email: 'an@gmail.com',
+//     age: 30
+// }
+
+// const key: keyof User = "email";
+// console.log(user[key]);
+
+
+//typeof: Trích xuất các value của key trong object -> Chuyển thành type
+// const user = {
+//     name: 'An',
+//     email: 'an@gmail.com',
+//     age: 30,
+//     status: false
+// }
+// type User = typeof user;
+// const key: keyof User = "email";
+// console.log(user[key]);
+
+// const key: keyof typeof user = "status";
+// console.log(user[key]);
+
+//Generic
+// - Vấn đề: Áp dụng khi mỗi lần gọi type lại khác nhau -> Tạo ra rất nhiều type
+// interface User<T> {
+//     name: string;
+//     email: string;
+//     details: T
+// }
+
+// type UserAddress = {
+//     address: string;
+//     province: string;
+// }
+
+// const user1: User<UserAddress> = {
+//     name: 'An',
+//     email: 'an@gmail.com',
+//     details: {
+//         address: 'HN',
+//         province: 'HN'
+//     }
+// }
+
+// type UserJob = {
+//     job: string;
+// }
+
+// const user2: User<UserJob> = {
+//     name: 'An',
+//     email: 'an@gmail.com',
+//     details: {
+//         job: "Teacher"
+//     }
+// }
+
+// const getUser = <T>(user: T, key: keyof T) => {
+//     return user[key];
+// }
+// function getUser<T>(user: T, key: keyof T) {
+//     return user[key]
+// }
+// type User = {
+//     name: string;
+//     email: string
+// }
+// getUser<User>({
+//     name: 'An',
+//     email: 'an@gmail.com'
+// }, "name");
+
+const debounce = <T extends unknown[]>(callback: (...args: T) => void, timeout = 500) => {
+    let id: number;
+    return (...args: T) => {
+        if (id) {
+            clearTimeout(id);
+        }
+        id = setTimeout(() => {
+            callback(...args);
+        }, timeout)
+    }
 }
+
+const func1 = debounce((a: number, b: number) => {
+    console.log(a, b);
+}, 500);
+
+func1(10, 20);
+
+const func2 = debounce((a: number, b: string, c: boolean) => {
+    console.log(a, b);
+}, 500);
+
+func2(10, 'An', false);
