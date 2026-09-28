@@ -94,25 +94,177 @@
 // }
 
 //Bài tập
-const debounce = (callback, timeout = 500) => {
-    let id;
-    return (...args) => {
-        if (id) {
-            clearTimeout(id);
-        }
-        id = setTimeout(() => {
-            callback(...args);
-        }, timeout)
-    }
+// const debounce = (callback: (...args: unknown[]) => void, timeout = 500) => {
+//     let id: number;
+//     return (...args: unknown[]) => {
+//         if (id) {
+//             clearTimeout(id);
+//         }
+//         id = setTimeout(() => {
+//             callback(...args);
+//         }, timeout)
+//     }
+// }
+
+// const func1 = debounce((a: unknown, b: unknown) => {
+//     console.log(a, b);
+// }, 500);
+
+// func1(10, 20);
+
+// const func2 = debounce((value: unknown) => {
+//     console.log(value);
+//     if (typeof value === 'string') {
+//         const result: string = value;
+//     }
+
+// }, 1000)
+// func2('An');
+
+// const getTodos = async (): Promise<{id: number; title: string}[]> => {
+//     const response = await fetch(`/api/todos`);
+//     return response.json();
+// }
+
+// const main = async () => {
+//    const todos =  await getTodos();
+//    todos.forEach(todo => {
+
+//    })
+// }
+
+//Các kiểu tự định nghĩa
+
+//- type
+// + Áp dụng với mọi kiểu dữ liệu
+// + Không kế thừa được
+// + Không được đặt type giống nhau
+
+//- interface
+// + Chỉ áp dụng với object
+// + Kế thừa được
+// + Được phép đặt Interface giống nhau -> tự động gộp
+
+// type User = {
+//     id: number;
+//     name: string;
+//     age: number;
+//     status: boolean | number | undefined;
+// }
+// type Customer = User & {
+//     address: string;
+// }
+// const user: User = {
+//     id: 1,
+//     name: 'An',
+//     age: 34,
+//     status: true
+// }
+
+// const customer: Customer = {
+//     id: 10,
+//     name: 'Tuấn',
+//     age: 30,
+//     address: 'HN',
+//     status: 0
+// }
+
+// interface User {
+//     id: number;
+//     name: string;
+//     age: number;
+//     status: boolean | number | undefined;
+// }
+
+// interface Customer extends User {
+//     address: string;
+// }
+
+// interface User {
+//     email: string;
+// }
+
+// const user: User = {
+//     id: 1,
+//     name: 'An',
+//     age: 34,
+//     status: true,
+//     email: 'an@gmail.com',
+// }
+
+// const customer: Customer = {
+//     id: 10,
+//     name: 'Tuấn',
+//     age: 30,
+//     address: 'HN',
+//     status: 0,
+//     email: 'an@gmail.com'
+// }
+
+// const myArr: User[] = [{
+//     id: 1,
+//     name: 'An',
+//     age: 34,
+//     status: true,
+//     email: 'an@gmail.com'
+// }]
+
+// interface IUser {
+//     name: string;
+//     email: string;
+//     getName: () => string;
+// }
+
+// class User implements IUser {
+//     name: string = 'An';
+//     email: string = 'an@gmail.com';
+//     getName() {
+//         return 'An'
+//     }
+//     getEmail() {
+//         return 'email'
+//     }
+// }
+
+//readonly
+// interface User {
+//     readonly name: string;
+//     age: number;
+// }
+// const user: User = {
+//     name: 'An',
+//     age: 34
+// }
+
+// user.name = 'Hoàng An';
+
+//Optional trong function
+// const getMessage = (msg: string, status?: string) => {
+//     console.log(msg);
+//     console.log(status);
+// }
+
+// getMessage('Học Tyoescript không khó');
+
+//Ví dụ:
+// const getUser = (id: number) => {
+//     console.log(id);
+// }
+
+// let id: string | undefined | null;
+// let check = 5;
+// if (check) {
+//     id = '10';
+// }
+// getUser(+id!); //Khẳng định với TypeScript là dữ liệu ổn
+
+//Bài tập
+try {
+    const error = new Error('Page not found');
+    error.status = 404;
+    throw error;
+} catch (error) {
+    console.log(error.message);
+    console.log(error.status);
+
 }
-
-const func1 = debounce((a: number, b: number) => {
-    console.log(a, b);
-}, 500);
-
-func1(10, 20);
-
-const func2 = debounce((value: string) => {
-    console.log(value);
-}, 1000)
-func2('An');
