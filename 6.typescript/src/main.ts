@@ -390,26 +390,249 @@
 //     email: 'an@gmail.com'
 // }, "name");
 
-const debounce = <T extends unknown[]>(callback: (...args: T) => void, timeout = 500) => {
-    let id: number;
-    return (...args: T) => {
-        if (id) {
-            clearTimeout(id);
-        }
-        id = setTimeout(() => {
-            callback(...args);
-        }, timeout)
-    }
-}
+// const debounce = <T extends unknown[]>(callback: (...args: T) => void, timeout = 500) => {
+//     let id: number;
+//     return (...args: T) => {
+//         if (id) {
+//             clearTimeout(id);
+//         }
+//         id = setTimeout(() => {
+//             callback(...args);
+//         }, timeout)
+//     }
+// }
 
-const func1 = debounce((a: number, b: number) => {
-    console.log(a, b);
-}, 500);
+// const func1 = debounce((a: number, b: number) => {
+//     console.log(a, b);
+// }, 500);
 
-func1(10, 20);
+// func1(10, 20);
 
-const func2 = debounce((a: number, b: string, c: boolean) => {
-    console.log(a, b);
-}, 500);
+// const func2 = debounce((a: number, b: string, c: boolean) => {
+//     console.log(a, b);
+// }, 500);
 
-func2(10, 'An', false);
+// func2(10, 'An', false);
+
+//OOP
+// - Class
+// class User {
+//     //Thuộc tính
+//     public name: string;
+//     public email: string;
+//     protected messsage = 'Hello anh em';
+
+//     //Phương thức khởi tạo
+//     constructor(name: string, email: string) {
+//         this.name = name;
+//         this.email = email;
+//     }
+
+//     //Phương thức
+//     public getName(): string {
+//         return this.name;
+//     }
+
+//     public getEmail(): string {
+//         return this.email;
+//     }
+// }
+
+// class Auth extends User {
+//     private status: boolean;
+//     constructor(name: string, email: string, status: boolean) {
+//         super(name, email);
+//         this.status = status;
+//     }
+//     public getMessage() {
+//         return this.messsage;
+//     }
+
+//     public getStatus() {
+//         return this.status;
+//     }
+// }
+
+// class App {
+//     private auth: Auth;
+//     constructor(auth: Auth) {
+//         this.auth = auth;
+//     }
+//     public resolve() {
+//         console.log(this.auth);
+//     }
+// }
+// - Instance
+// const user = new User('User 1', 'user1@gmail.com');
+// console.log(user.name);
+
+// const auth = new Auth('User 1', 'user1@gmail.com', true);
+// new App(auth).resolve();
+
+//Tính trừu tượng
+//Ví dụ: Cần xây dựng chức năng thanh toán
+//- Class Payment -> Xử lý các thao tác thanh toán chung
+//+ Nhận thông tin xác thực từ cổng thanh toán trả về
+//+ Lưu lịch sử giao dịch
+//+ Cập nhật trạng thái đơn hàng
+
+//- Xây dựng các class phục vụ chức năng của từng cổng
+//+ Sepay: Generate QR Code
+//+ VnPay: Gerate link redirect
+
+//Lớp trừu tượng
+// - Phương thức trừu tượng chỉ được phép khai báo trong class trừu trượng
+// - Trong 1 class trừu tượng có thể không có phương trừu tượng
+// - Có thể tồn tại các phương thức không trừu tượng
+// - Không được phép khởi tạo instance trực tiếp từ class trừu tượng
+// - Nếu có thuộc tính trong class trừu tượng chỉ được phép dùng public, protected
+
+//Phương thức trừu tượng
+// - Không được định nghĩa logic, chỉ được khai báo
+// - Định nghĩa phương thức trừu tượng trong lớp kế thừa
+
+// abstract class Payment {
+//     saveTransaction() {
+//         console.log('saveTransaction');
+//     }
+
+//     updateStatus() {
+//         console.log('updateStatus');
+//     }
+
+//     resolveFromGateway() {
+//         console.log('resolveFromGateway');
+//     }
+
+//     abstract processPayment(): void; //Phương thức trừu tượng
+// }
+
+// class VnPayPayment extends Payment {
+//     processPayment(): void {
+//         console.log('processPayment VnPay');
+//     }
+// }
+
+// class SepayPayment extends Payment {
+//     processPayment(): void {
+//         console.log('processPayment Sepay');
+//     }
+// }
+
+// console.log('VNPAY');
+
+// const vnpay = new VnPayPayment();
+// vnpay.processPayment();
+// vnpay.resolveFromGateway();
+// vnpay.updateStatus();
+// vnpay.saveTransaction();
+
+// console.log('Sepay');
+// const sepay = new SepayPayment();
+// sepay.processPayment();
+// sepay.resolveFromGateway();
+// sepay.updateStatus();
+// sepay.saveTransaction();
+
+//Tính đa hình
+// class Calc {
+//     //Overload (Nạp chồng)
+//     public sum(a: number, b: number): void;
+//     public sum(a: string, b: string): void
+//     public sum(a: string): void;
+//     public sum(...args: unknown[]) {
+//         if (args.length === 2) {
+//             const [a, b] = args as [number, number] | [string, string];
+//             if (typeof a === 'string' && typeof b === 'string') {
+//                 console.log(`(String) Nối và b = ${a + b}`);
+
+//             } else {
+//                 console.log(`(Number) Cộng a + b = ${+a + +b}`);
+//             }
+
+//         }
+
+//         if (args.length === 1) {
+//             console.log(args[0]);
+//         }
+//     }
+// }
+
+// const calc = new Calc();
+// calc.sum(10, 20);
+// calc.sum('Hoàng An')
+// calc.sum('An', 'Tuấn')
+
+//Utility Type
+
+// - Partial: Biến các key trong type, interface thành optional
+// type User = {
+//     id: number;
+//     name: string;
+//     email: string;
+// }
+
+// const user: User = {
+//     id: 1,
+//     name: 'An',
+//     email: 'an@gmal.com'
+// }
+
+// const customer: Partial<User> = {
+//     id: 10,
+//     email: 'abc@gmail.com'
+// }
+
+//Readonly
+// type UserReadonly = Readonly<User>;
+
+//Record: Tạo ra 1 type từ key là union và value là kiểu bất kỳ
+// type Role = "admin" | "user" | "guest" | "superAdmin"; //Union
+// type Permission = Record<Role, string[] | string>
+// const permissions: Permission = {
+//     admin: ['read', 'create', 'update', 'delete'],
+//     user: ['read', 'create'],
+//     // guest: ['read']
+//     guest: "read",
+//     superAdmin: ['all']
+// }
+
+//Pick
+// type User = {
+//     id: number;
+//     name: string;
+//     email: string;
+// }
+
+// type Customer = Pick<User, "name" | "email">
+
+//Omit -> Ngược lại với Pick
+// type User = {
+//     id: number;
+//     name: string;
+//     email: string;
+// }
+// type Customer = Omit<User, "id">
+
+//ReturnType
+// const doSomething = () => {
+//     return {
+//         id: 10,
+//         name: 'An',
+//         age: 34
+//     }
+// }
+// type User = ReturnType<typeof doSomething>;
+
+// const config = {
+//     name: 'An',
+//     email: 'dat@gmail.com'
+// }
+
+// const config2 = {...config} as const;
+
+// config2.name = 'An';
+
+import { a } from "./modules/home.js";
+console.log('Hello anh em');
+console.log(a);
