@@ -108,23 +108,23 @@ const root = document.querySelector('#root');
 
 //main -> Title -> SubTitle
 
-const Subtitle = ({ text, onClick }) => {
-    return <>
-        <p>{text}</p>
-        <button onClick={onClick}>Click me</button>
-    </>
-}
+// const Subtitle = ({ text, onClick }) => {
+//     return <>
+//         <p>{text}</p>
+//         <button onClick={onClick}>Click me</button>
+//     </>
+// }
 
-const Title = ({ title, age }) => {
-    const handleClick = () => {
-        console.log('Click from SubTitle');
-    }
-    return <div>
-        <h1>{title}</h1>
-        <h2>{age}</h2>
-        <Subtitle text="Ok chưa?" onClick={handleClick} />
-    </div>
-}
+// const Title = ({ title, age }) => {
+//     const handleClick = () => {
+//         console.log('Click from SubTitle');
+//     }
+//     return <div>
+//         <h1>{title}</h1>
+//         <h2>{age}</h2>
+//         <Subtitle text="Ok chưa?" onClick={handleClick} />
+//     </div>
+// }
 
 /*
 const a = () => {}
@@ -140,16 +140,88 @@ d() -> a sẽ chạy
 // - Trả về jsx
 // - Cách gọi giống như thẻ html
 
-const demoJsx = <div>
-    <Title title="Hoàng An" age="34" />
-    <Title title="Tuấn Anh" age="20" />
-</div>
+// const demoJsx = <div>
+//     <Title title="Hoàng An" age="34" />
+//     <Title title="Tuấn Anh" age="20" />
+// </div>
+
+const Counter = () => {
+    //Render phase -> Tính toán tìm node cần cập nhật
+    //Commit phase -> Sau khi đã cập nhật xuống browser
+    const [count, setCount] = React.useState(0);
+    const handeIncrement = () => {
+        // setCount(count + 1);
+        setCount((prev) => prev + 1);
+    }
+    const handleDecrement = () => {
+        setCount((prev) => prev - 1);
+    }
+
+    return <div>
+        <h1>Count: {count}</h1>
+        <button onClick={handleDecrement}>-</button>
+        <button onClick={handeIncrement}>+</button>
+    </div>
+}
+
+const TodoList = () => {
+    const [name, setName] = React.useState("");
+    const [todoList, setTodoList] = React.useState([]);
+    const handleChangeInput = (e) => {
+        setName(e.target.value);
+    }
+
+    const handleAdd = () => {
+        setTodoList([...todoList, {
+            id: crypto.randomUUID(),
+            name
+        }]);
+        setName("");
+    }
+
+    const handleRemove = (id) => {
+        //id -> event object
+        setTodoList(todoList.filter((todo) => todo.id !== id));
+    }
+
+    return <div>
+        <div className="heading">
+            <input placeholder="Name..." onChange={handleChangeInput} value={name} />
+            <button onClick={handleAdd}>Add</button>
+        </div>
+        <div>
+            <h3 style={{
+                padding: 10,
+                backgroundColor: 'yellow'
+            }}>Todo List</h3>
+            <ul>
+                {
+                    todoList.map((todo) => <li key={todo.id}>
+                        <input type="checkbox" />
+                        <span>{todo.name}</span>
+                        <button onClick={() => handleRemove(todo.id)}>&times;</button>
+                    </li>)
+                }
+            </ul>
+        </div>
+    </div>
+}
+
+const element = <>
+    <TodoList />
+</>
 
 //2. Render lên trình duyệt thông qua thư viện ReactDOM
 const container = ReactDOM.createRoot(root);
-container.render(demoJsx);
+container.render(element);
 
 //JSX -> Babel -> React Element -> ReactDOM -> DOM Element -> HTML
 
 //useState
 //useEffect
+
+//State: 
+// - Dữ liệu của component
+// - Tự động kích hoạt re-render khi state thay đổi
+// - Không được cập nhật trực tiếp state, phải thông qua hàm set
+// - Hàm set -> bất đồng bộ
