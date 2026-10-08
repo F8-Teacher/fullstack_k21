@@ -1,14 +1,12 @@
-import type { TodoData } from "@/types/todo.type";
+import { use } from "react";
 import TodoItem from "./TodoItem";
-type TodoListProps = {
-  data: TodoData[];
-  onDelete?: (id: string) => void;
-};
-export default function TodoList({ data, onDelete }: TodoListProps) {
+import { TodoContext } from "@/context/TodoContext";
+export default function TodoList() {
+  const { todoList } = use(TodoContext);
   return (
     <div className="p-5 border border-gray-200 rounded-lg">
-      {data.map((todo) => (
-        <TodoItem key={todo.id} data={todo} onDelete={onDelete} />
+      {todoList.map((todo) => (
+        <TodoItem key={todo.id} data={todo} />
       ))}
     </div>
   );

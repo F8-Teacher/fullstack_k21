@@ -1,19 +1,22 @@
-import type { TodoData } from "@/types/todo.type";
-import { useState, type ChangeEvent, type SubmitEvent } from "react";
-type TodoAddProps = {
-  onSubmit?: (data: TodoData) => void;
-};
-export default function TodoAdd({ onSubmit }: TodoAddProps) {
+import { TodoContext } from "@/context/TodoContext";
+import { use, useState, type ChangeEvent, type SubmitEvent } from "react";
+
+export default function TodoAdd() {
+  const { dispatch } = use(TodoContext);
   const [name, setName] = useState<string>("");
   const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
   const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit?.({
+    const todo = {
       id: crypto.randomUUID(),
       name,
       completed: false,
+    };
+    dispatch({
+      type: "ADD_TODO",
+      payload: todo,
     });
     setName("");
   };
