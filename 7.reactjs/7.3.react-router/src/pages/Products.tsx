@@ -1,7 +1,20 @@
 import { debounce } from "@/utils/utils";
 import { useEffect, type ChangeEvent } from "react";
-import { useSearchParams } from "react-router-dom";
-
+import { Link, useSearchParams } from "react-router-dom";
+const PRODUCT_DATA = [
+  {
+    id: 1,
+    name: "Product 1",
+  },
+  {
+    id: 2,
+    name: "Product 2",
+  },
+  {
+    id: 3,
+    name: "Product 3",
+  },
+];
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
   const q = searchParams.get("q");
@@ -28,6 +41,15 @@ export default function Products() {
         })}
       />
       <p>Search: {q}</p>
+
+      <div className="gap-3 grid grid-cols-4">
+        {PRODUCT_DATA.map((product) => (
+          <div key={product.id}>
+            <h2 className="text-xl">{product.name}</h2>
+            <Link to={"/orders/" + product.id}>Đặt hàng</Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

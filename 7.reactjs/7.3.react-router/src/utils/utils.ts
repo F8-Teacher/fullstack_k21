@@ -1,3 +1,5 @@
+import { useTheme } from "@/store/useThemeStore";
+
 export const debounce = <T extends unknown[]>(callback: (...args: T) => void, timeout = 500) => {
     let id: number;
     return (...args: T) => {
@@ -13,3 +15,8 @@ export const debounce = <T extends unknown[]>(callback: (...args: T) => void, ti
 //id1 = setTimeout1
 //id2 = setTimeout2
 //id3 = setTimeout3
+
+export const changeTheme = () => {
+    const { toggleTheme } = useTheme.getState();
+    toggleTheme();
+}

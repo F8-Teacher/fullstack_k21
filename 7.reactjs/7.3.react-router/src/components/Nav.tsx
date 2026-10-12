@@ -1,6 +1,8 @@
+import { useTheme } from "@/store/useThemeStore";
 import { Link } from "react-router-dom";
 
 export default function Nav() {
+  const { theme, toggleTheme } = useTheme();
   return (
     <div className="p-3 w-55">
       <h3 className="mb-3 border-gray-100 border-b text-lg">Menu</h3>
@@ -18,6 +20,7 @@ export default function Nav() {
           <Link to="/contact">Contact</Link>
         </li>
       </ul>
+      <button onClick={toggleTheme}>Theme: {theme}</button>
     </div>
   );
 }
