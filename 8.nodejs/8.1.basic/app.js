@@ -52,8 +52,8 @@
 // const data = fs.readFileSync(path.join(import.meta.dirname, 'data', 'data.txt'), 'utf-8');
 // console.log(data);
 
-import fs from "fs/promises";
-import path from "path";
+// import fs from "fs/promises";
+// import path from "path";
 // await fs.writeFile(path.join(import.meta.dirname, 'data', 'data.txt'), 'Chào anh em K21\n', {
 //     flag: 'a+'
 // });
@@ -86,8 +86,84 @@ import path from "path";
 // const scans = await fs.readdir(path.join(import.meta.dirname, 'data'));
 // console.log(scans);
 
-const deleteFolder = async (path) => {
-    //Viết hàm xóa folder bất kỳ
+// const deleteFolder = async (rootFolder) => {
+//     //Viết hàm xóa folder bất kỳ
+//     const files = [];
+//     const getAllFiles = async (currentPath) => {
+//         const scans = await fs.readdir(currentPath);
+//         for (const scan of scans) {
+//             const stat = await fs.stat(path.join(currentPath, scan));
+//             if (stat.isDirectory()) {
+//                 files.push(path.join(currentPath, scan));
+//                 await getAllFiles(path.join(currentPath, scan));
+//             } else {
+//                 await fs.unlink(path.join(currentPath, scan));
+//             }
+//         }
+
+//     }
+//     await getAllFiles(rootFolder);
+//     const filesSorted = files.sort((a, b) => b.length - a.length);
+//     for (const val of filesSorted) {
+//         await fs.rmdir(val);
+//     }
+//     await fs.rmdir(rootFolder);
+
+// }
+
+// deleteFolder(path.join(import.meta.dirname, 'data'))
+
+//Xóa từng file trong folder
+//Lấy danh sách folder -> Sắp xếp -> Xóa lần lượt từng folder
+
+//http
+import http from "http";
+import url from "url";
+
+const users = [];
+const createUser = (body) => {
+    users.push(body);
 }
 
-deleteFolder(path.join(import.meta.dirname, 'data'));
+const getUsers = () => {
+    return JSON.stringify(users);
+}
+
+const server = http.createServer(async (req, res) => {
+    const urlParsed = url.parse(req.url, true);
+    const pathname = urlParsed.pathname;
+    const headers = req.headers;
+    const method = req.method;
+    let body = '';
+    for await (const chunk of req) {
+        body += chunk;
+    }
+    if (body) {
+        body = JSON.parse(body);
+    }
+
+    res.setHeader('Content-Type', 'application/json');
+
+    if (pathname === '/api/users' && method === 'GET') {
+        return res.end(getUsers());
+    }
+
+    if (pathname === '/api/users' && method === 'POST') {
+        createUser(body);
+        res.statusCode = 201;
+        return res.end(JSON.stringify(body));
+    }
+
+    //Response
+    // - status
+    res.statusCode = 404;
+    // - header
+
+    // - body
+    res.end(JSON.stringify({
+        message: 'Npt Found'
+    }));
+})
+server.listen(3000, () => {
+    console.log(`Server đang chạy port: 3000`);
+})
