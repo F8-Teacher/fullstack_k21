@@ -11,6 +11,7 @@ export const userController = {
     },
     async find(req: Request, res: Response) {
         const { id } = req.params;
+        console.log('Token in controller', req.token);
         const data = await userService.find(+id!);
         return res.json({
             message: "Get user success",
@@ -34,3 +35,14 @@ export const userController = {
 //Ví dụ: 
 // - Controller: User
 // - Actions: findAll, find, create, update, delete, deleteAll,...
+
+//Error Handling
+
+// - HttpException -> Tất cả các loại lỗi
+// - NotFoundException -> 404
+// - UnauthorizeException -> 401
+// - BadRequestException -> 400
+// - InternalServerException -> 500
+// - ForbiddenException -> 403
+// - ConflictException
+// - TooManyRequestException

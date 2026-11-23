@@ -1,7 +1,11 @@
 import Express from "express";
 import { userController } from "../controllers/user.controller.js";
+import { authMiddleware } from "../middlewares/auth.middleware.js";
+import { roleMiddleware } from "../middlewares/role.middleware.js";
 const router = Express.Router();
 router.get('/', userController.findAll);
+router.use(authMiddleware);
+router.use(roleMiddleware);
 router.get('/:id', userController.find);
 router.post('/', userController.create);
 export default router;
