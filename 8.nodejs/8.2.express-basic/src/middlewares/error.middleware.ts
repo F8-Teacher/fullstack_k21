@@ -5,7 +5,9 @@ import { HttpException } from "../exceptions/http.exception.js";
 
 export const errorHandling = (err: HttpExceptionType, req: Request, res: Response, next: NextFunction) => {
     return res.status(err.status).json({
-        message: err.message ?? 'Server Error'
+        message: err.message ?? 'Server Error',
+        success: false,
+        ...(err.errors ? { errors: err.errors } : {})
     })
 }
 
