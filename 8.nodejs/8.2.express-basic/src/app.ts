@@ -5,6 +5,7 @@ import { errorHandling, notFoundHandling } from "./middlewares/error.middleware.
 const app = express();
 const PORT = 3000;
 
+app.use('/uploads', express.static(process.cwd() + '/uploads'));
 app.use(express.json()); //parser body json
 app.use(express.urlencoded()); //parser body urlendcoded
 
