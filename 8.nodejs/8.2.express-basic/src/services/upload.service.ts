@@ -2,7 +2,7 @@ import { Request } from "express";
 import fs from "fs/promises";
 
 export const uploadService = {
-    async upload(req: Request) {
+    async upload(req: Request, dir: string) {
         const { replaceFile } = req.body;
         if (replaceFile) {
             //Delete file
@@ -10,8 +10,8 @@ export const uploadService = {
         }
         const origin = req.protocol + '://' + req.host;
         return {
-            path: `/uploads/${req.file?.filename}`,
-            url: `${origin}/uploads/${req.file?.filename}`
+            path: `/uploads/${dir}/${req.file?.filename}`,
+            url: `${origin}/uploads/${dir}/${req.file?.filename}`
         }
     },
 

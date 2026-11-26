@@ -6,10 +6,19 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="http://localhost:3000/users" method="post">
-      <input type="text" name="name" />
-      <input type="text" name="email" />
-      <button>Submit</button>
-    </form>
+    <script>
+      const demoFetch = async () => {
+        const res = await fetch(`http://localhost:3000/api/demo`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        });
+        const data = await res.json();
+        console.log(data);
+      };
+      demoFetch();
+    </script>
   </body>
 </html>
